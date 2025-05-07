@@ -36,9 +36,6 @@
     ``` bash 
     python -m venv venv
     venv\Scripts\activate  # Windows
-    ou
-    ```bash
-    source venv/bin/activate  # Linux/macOS
 
 2. **Instale as dependencias**
     ```bash
