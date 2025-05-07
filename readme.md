@@ -32,18 +32,23 @@
 
 ## Uso
 
-**Crie um ambiente virtual**
-python -m venv venv
-venv\Scripts\activate  # Windows
+1. **Crie um ambiente virtual**
+    ``` bash 
+    python -m venv venv
+    venv\Scripts\activate  # Windows
 ou
-source venv/bin/activate  # Linux/macOS
+    ```bash
+    source venv/bin/activate  # Linux/macOS
 
-**Instale as dependencias**
-pip install -r requirements.txt
+2. **Instale as dependencias**
+    ```bash
+    pip install -r requirements.txt
 
-**Inicie o Ollama**
-ollama serve
-ollama run llama3
+3. **Inicie o Ollama**
+    ```bash
+    ollama serve
+    ollama run llama3
 
-**Run, in bash**
-python main.py
+4. **Run, in bash**
+    ```bash
+    python main.py
