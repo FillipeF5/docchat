@@ -26,7 +26,7 @@
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/docchat.git
+   git clone https://github.com/FillipeF5/docchat.git
    cd docchat
 
 
@@ -37,15 +37,11 @@
     python -m venv venv
     venv\Scripts\activate  # Windows
 
-2. **Instale as dependencias**
-    ```bash
-    pip install -r requirements.txt
-
-3. **Inicie o Ollama**
+2. **Inicie o Ollama**
     ```bash
     ollama serve
     ollama run llama3
 
-4. **Run, in bash**
+3. **Run, in bash**
     ```bash
     python main.py
