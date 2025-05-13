@@ -2,6 +2,7 @@ import os
 import sys
 import subprocess
 import requests
+import shutil
 from pathlib import Path
 from typing import List, Tuple, Dict
 from rich.console import Console
@@ -22,7 +23,7 @@ try:
     from langchain_huggingface import HuggingFaceEmbeddings
     from langchain_community.vectorstores import Chroma # type: ignore
     from langchain.chains import RetrievalQA
-    from langchain_community.llms.ollama import Ollama
+    from langchain_community.llms.ollama import Ollama  # type: ignore
     from prompt_toolkit import prompt
     from prompt_toolkit.history import FileHistory
 except ImportError as e:
@@ -120,6 +121,8 @@ class DocumentChatbot:
 
         chunks = self.text_splitter.split_documents(documents)
         
+        if os.path.exists("./chroma_db"):
+            shutil.rmtree("./chroma_db")
         self.vector_db = Chroma.from_documents(
             documents=chunks,
             embedding=self.embeddings,
@@ -133,12 +136,12 @@ class DocumentChatbot:
             return "Documents not loaded properly.", []
 
         try:
-            # Configuração atualizada do retriever
+            # Configuração do retriever
             retriever = self.vector_db.as_retriever(
                 search_type="similarity_score_threshold",
                 search_kwargs={
-                    "k": 10,
-                    "score_threshold": 0.35
+                    "k": 7,
+                    "score_threshold": 0.2
                 }
             )
             
